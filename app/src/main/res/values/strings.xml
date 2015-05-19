@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">LocalizacionGeografica</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="activar">Activar</string>
+    <string name="desactivar">Desactivar</string>
+    <string name="estadoprov">Estado proveedor</string>
+    <string name="posicion_actual">Posicion actual</string>
+</resources>
