@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 public class MainActivity extends ActionBarActivity {
 
+    //Declarar una variable para cada elemento de la interfaz grafica
     private Button btnActualizar;
     private Button btnDesactivar;
     private TextView lblLatitud;
@@ -23,6 +24,7 @@ public class MainActivity extends ActionBarActivity {
     private TextView lblPrecision;
     private TextView lblEstado;
 
+    //Declarar variables para el administrador de localizacion
     private LocationManager locationManager;
     private LocationListener locationListener;
 
@@ -31,6 +33,7 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Declarar el elemento grafico donde interactuara con cada variable
         btnActualizar = (Button)findViewById(R.id.BtnActualizar);
         btnDesactivar = (Button)findViewById(R.id.BtnDesactivar);
         lblLatitud = (TextView)findViewById(R.id.LblPosLatitud);
@@ -38,13 +41,14 @@ public class MainActivity extends ActionBarActivity {
         lblPrecision = (TextView)findViewById(R.id.LblPosPrecision);
         lblEstado = (TextView)findViewById(R.id.LblEstado);
 
+        //Evento para llamar funcion de actualizar posicion
         btnActualizar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 actualizarPosicion();
             }
         });
-
+        //Evento para actualizar la posicion
         btnDesactivar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,6 +94,7 @@ public class MainActivity extends ActionBarActivity {
     private void muestraPosicion(Location loc) {
         if(loc != null)
         {
+            //Igualar en que elementos de la interfaz grafica se mostrara a Latitud, Longitud y Presicion
             lblLatitud.setText("Latitud: " + String.valueOf(loc.getLatitude()));
             lblLongitud.setText("Longitud: " + String.valueOf(loc.getLongitude()));
             lblPrecision.setText("Precision: " + String.valueOf(loc.getAccuracy()));
@@ -97,6 +102,7 @@ public class MainActivity extends ActionBarActivity {
         }
         else
         {
+            //Si no se encuentra activada la localizacion, se mostraran las etiquetas de Sin datos
             lblLatitud.setText("Latitud: (sin_datos)");
             lblLongitud.setText("Longitud: (sin_datos)");
             lblPrecision.setText("Precision: (sin_datos)");
